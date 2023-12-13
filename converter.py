@@ -5,7 +5,7 @@ from moviepy.video.io.VideoFileClip import VideoFileClip
 from moviepy.video.compositing.CompositeVideoClip import CompositeVideoClip
 import argparse
 
-def split_video(input_path, output_folder, segment_length, add_gameplay):
+def split_video(input_path, output_folder, segment_length, add_gameplay, gameplay_path):
     # Create the output folder if it doesn't exist
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
@@ -33,7 +33,10 @@ def split_video(input_path, output_folder, segment_length, add_gameplay):
 
     # Load the gameplay video if requested
     if add_gameplay:
-        gameplay_clip = VideoFileClip("gameplay.mp4")
+        if gameplay_path:
+            gameplay_clip = VideoFileClip(gameplay_path)
+        else:
+            gameplay_clip = VideoFileClip("gameplay.mp4")
         gameplay_clip.audio = None
     else:
         gameplay_clip = None
@@ -62,8 +65,9 @@ if __name__ == "__main__":
     parser.add_argument("-v", "--video", help="Path to the input video file.", required=True)
     parser.add_argument("-l", "--length", type=int, help="Length of each video segment in seconds (default: 60, max: 120).")
     parser.add_argument("-g", "--gameplay", action="store_true", help="Add gameplay video to each segment (default: True).")
+    parser.add_argument("-gp", "--gameplay-path", help="Path to the custom gameplay video file.")
     args = parser.parse_args()
 
     input_path = args.video
     output_folder = "output"
-    split_video(input_path, output_folder, args.length, args.gameplay)
+    split_video(input_path, output_folder, args.length, args.gameplay, args.gameplay_path)

@@ -20,6 +20,7 @@ python script.py -v <input_video_path> [-l <segment_length>] [-g]
     -v, --video: Path to the input video file (required).
     -l, --length: Length of each video segment in seconds (default: 60, max: 120).
     -g, --gameplay: Add gameplay video to each segment (default: True).
+    -gp, --gameplay-path: Path to the custom gameplay video file(default: use the gameplay.mp4 video in the repo).
 
 ## Example
 
