@@ -14,7 +14,7 @@ This script allows you to split a video into segments, optionally adding gamepla
 ## Usage
 
 ```bash
-python script.py -v <input_video_path> [-l <segment_length>] [-g]
+python converter.py -v <input_video_path> [-l <segment_length>] [-g]
 ```
 
     -v, --video: Path to the input video file (required).
@@ -26,7 +26,7 @@ python script.py -v <input_video_path> [-l <segment_length>] [-g]
 
 ```bash
 
-python script.py -v input_video.mp4 -l 45 -g
+python converter.py -v input_video.mp4 -l 45 -g
 ```
 
 This example splits the video "input_video.mp4" into segments of 45 seconds each, adding gameplay footage to each segment.
@@ -38,7 +38,7 @@ Notes
 Feel free to modify the options according to your needs. For additional help, use:
 
 ```bash
-python script.py -h
+python converter.py -h
 ```
 
 Note: Adjust the paths and filenames in the script according to your file structure.
