@@ -64,7 +64,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Split and compose video segments with gameplay.")
     parser.add_argument("-v", "--video", help="Path to the input video file.", required=True)
     parser.add_argument("-l", "--length", type=int, help="Length of each video segment in seconds (default: 60, max: 120).")
-    parser.add_argument("-g", "--gameplay", action="store_true", help="Add gameplay video to each segment (default: True).")
+    parser.add_argument("-g", "--gameplay", action="store_false", default=True, help="Add gameplay video to each segment.")
     parser.add_argument("-gp", "--gameplay-path", help="Path to the custom gameplay video file.")
     args = parser.parse_args()
 
